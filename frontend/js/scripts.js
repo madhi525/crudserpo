@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    const token = localStorage.getItem('token');
 
     const logoutBtn = document.getElementById('logout');
     if (logoutBtn) {

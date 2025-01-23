@@ -3,7 +3,10 @@ session_start();
 include 'db.php';
 header('Content-Type: application/json');
 
-if ($_SESSION['role'] == 'fleet'){
+if (!isset($_SESSION['token']) || $_SESSION['token'] !== $_GET['token']) {
+    echo json_encode(['success' => false, 'message' => 'Unauthorized access']);
+    exit;
+} else if ($_SESSION['role'] == 'fleet'){
     $data = [
         'id' => 123,
         'tugas_aktif' => 8,
