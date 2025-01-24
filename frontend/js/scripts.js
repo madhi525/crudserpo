@@ -16,10 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.success) {
                 localStorage.setItem('token', JSON.stringify(result.token)); // Menyimpan token ke localStorage
                 localStorage.setItem('role', JSON.stringify(result.role));
-                window.location.href =
-                    result.role === 'admin'
-                        ? 'admin_dashboard.html'
-                        : 'fleet_dashboard.html';
+                window.location.href = 'dashboard.html'
             } else {
                 alert(result.message || 'Login failed');
             }
